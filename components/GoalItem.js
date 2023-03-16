@@ -1,8 +1,7 @@
 import { StyleSheet, Text, View, Pressable } from "react-native";
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const GoalItem = ({ onDeleteGoal, text, id }) => {
-
-  
 
   return (
     <View style={styles.goalItem}>
@@ -10,7 +9,10 @@ const GoalItem = ({ onDeleteGoal, text, id }) => {
         onPress={onDeleteGoal.bind(this, id)}
         android_ripple={{color: '#ddd'}}
         style={({ pressed }) => pressed && styles.pressedItem}>
-        <Text style={styles.goalText}>{text}</Text>
+          <View style={styles.item}>
+            <Text style={styles.goalText}>{text}</Text>
+            <MaterialCommunityIcons name="delete" size={24} color="black" />
+          </View>
       </Pressable>
       </View>
   )
@@ -24,9 +26,14 @@ const styles = StyleSheet.create({
     margin: 8,
     backgroundColor: '#6d87b1',
   },
-  goalText: {
+  item: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     padding: 8,
     color: '#fff', 
+  },
+  goalText: {
+    marginLeft: 10,
   },
   pressedItem: {
     opacity: 0.5,

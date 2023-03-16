@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button, Modal, StyleSheet, TextInput, View, Image } from "react-native";
-
+import { Entypo } from '@expo/vector-icons';
 
 const GoalInput = ({ onAddGoal, visible, onCancel }) => {
   const [enteredGoalText, setEnteredGoalText] = useState('');
