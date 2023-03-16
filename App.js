@@ -1,41 +1,49 @@
 import { useState } from 'react';
-import { StyleSheet, Text, View, FlatList, Button } from 'react-native';
+import { StyleSheet, Text, View, FlatList, Button, Image } from 'react-native';
 import GoalInput from './components/GoalInput';
 import GoalItem from './components/GoalItem';
 
 const App = () => {
-  const [modalVisible, setModalVisible] = useState(false)
+  const [modalVisible, setModalVisible] = useState(false);
   const [learningGoals, setLearningGoals] = useState([]);
 
   const startAddGoalModal = () => {
     setModalVisible(true)
-  }
+  };
+
+  const endAddGoalModal = () => {
+    setModalVisible(false);
+  };
 
   const addGoalHandler = (enteredGoalText) => {
     setLearningGoals(currentLearningGoals => [
       ...currentLearningGoals, 
       {  text: enteredGoalText, id: Date.now().toString() }
     ]);
-    console.log(enteredGoalText)
+    setModalVisible(false);
   };
-  console.log(learningGoals)
 
   const deleteGoalHandler = (id) => {
     setLearningGoals((currentLearningGoals) => {
       return currentLearningGoals.filter((goal) => goal.id !== id)
     })
-    console.log('Delete')
   };
 
   return (
     <View style={styles.appContainer}>
-      <Text style={styles.text}>Goals App</Text>
-      <Button 
-        title='Add new goal' 
-        color='#ddd' 
-        onPress={startAddGoalModal} 
+       <Image source={require('./assets/images/logo.png')} style={styles.image} />
+       <View style={styles.button}>
+        <Button 
+          title='Add goal' 
+          color='#2430456b'
+          onPress={startAddGoalModal} 
+        />
+       </View>
+      <GoalInput 
+        visible={modalVisible} 
+        onAddGoal={addGoalHandler} 
+        onCancel={endAddGoalModal} 
       />
-      <GoalInput visible={modalVisible} onAddGoal={addGoalHandler} />
       <View style={styles.goalContainer}>
         <FlatList 
           data={learningGoals}
@@ -63,19 +71,26 @@ export default App;
 const styles = StyleSheet.create({
   appContainer: {
     flex: 1,
-    backgroundColor: '#fff',
     alignItems: 'center',
     paddingTop: 50,
-    paddingHorizontal: 16
+    paddingHorizontal: 10,
+    backgroundColor: '#96b7eb'
   },
-  text: {
-    margin: 16, 
-    borderWidth: 1, 
-    borderColor: '#000', 
-    padding: 16
+  image: {
+    flex: 2,
+    height: 164,
+    width: 300,
+    margin: 20
   },
   goalContainer: {
-    flex: 5,
+    flex: 4,
+    width: '90%'
+  },
+  button: {
+    width: '40%',
+    marginHorizontal: 8,
+    borderRadius: 8,
+    padding: 16,
   },
 });
 

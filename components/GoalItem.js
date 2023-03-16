@@ -20,9 +20,9 @@ export default GoalItem;
 
 const styles = StyleSheet.create({
   goalItem: {
-    borderRadius: 6,
+    borderRadius: 8,
     margin: 8,
-    backgroundColor: '#ccc',
+    backgroundColor: '#6d87b1',
   },
   goalText: {
     padding: 8,
