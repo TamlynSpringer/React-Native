@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Button, Modal, StyleSheet, TextInput, View, Image } from "react-native";
-import { Entypo } from '@expo/vector-icons';
 
 const GoalInput = ({ onAddGoal, visible, onCancel }) => {
   const [enteredGoalText, setEnteredGoalText] = useState('');
@@ -53,7 +52,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 16,
+    padding: 20,
     backgroundColor: '#96b7eb'
   },
   textInput: {

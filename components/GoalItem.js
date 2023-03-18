@@ -14,7 +14,7 @@ const GoalItem = ({ onDeleteGoal, text, id }) => {
             <MaterialCommunityIcons name="delete" size={24} color="black" />
           </View>
       </Pressable>
-      </View>
+    </View>
   )
 };
 

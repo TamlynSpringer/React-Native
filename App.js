@@ -35,7 +35,7 @@ const App = () => {
        <View style={styles.button}>
         <Button 
           title='Add goal' 
-          color='#2430456b'
+          color='#384c6dff'
           onPress={startAddGoalModal} 
         />
        </View>
@@ -74,13 +74,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingTop: 50,
     paddingHorizontal: 10,
-    backgroundColor: '#96b7eb'
+    backgroundColor: '#96b7eb',
+    width: '100%'
   },
   image: {
     flex: 2,
-    height: 164,
-    width: 300,
-    margin: 20
+    height: 109,
+    width: 200,
+    margin: 80
   },
   goalContainer: {
     flex: 4,
